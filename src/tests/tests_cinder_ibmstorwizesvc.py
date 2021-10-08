@@ -14,7 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-"""Encapsulate cinder-ibmstorwizesvc testing."""
+"""Encapsulate cinder-ibm-storwize-svc testing."""
 
 import logging
 import uuid
@@ -37,9 +37,9 @@ class CinderIBMStorwizeSVCTest(test_utils.OpenStackBaseTest):
             cls.keystone_session)
 
     def test_cinder_config(self):
-        logging.info('ibmstorwizesvc')
+        logging.info('ibm-storwize-svc')
         expected_contents = {
-            'cinder-ibmstorwizesvc': {
+            'cinder-ibm-storwize-svc': {
                 'iscsi_helper': ['tgtadm'],
                 'volume_dd_blocksize': ['512']}}
 
@@ -66,5 +66,5 @@ class CinderIBMStorwizeSVCTest(test_utils.OpenStackBaseTest):
         test_vol = self.cinder_client.volumes.find(name=test_vol_name)
         self.assertEqual(
             getattr(test_vol, 'os-vol-host-attr:host').split('#')[0],
-            'cinder@cinder-ibmstorwizesvc')
+            'cinder@cinder-ibm-storwize-svc')
         self.cinder_client.volumes.delete(vol_new)

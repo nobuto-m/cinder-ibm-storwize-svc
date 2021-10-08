@@ -17,7 +17,7 @@ from __future__ import print_function
 
 import charmhelpers
 
-import charm.openstack.cinder_ibmstorwizesvc as cinder_ibmstorwizesvc
+import charm.openstack.cinder_ibm_storwize_svc as cinder_ibm_storwize_svc
 
 import charms_openstack.test_utils as test_utils
 
@@ -33,12 +33,12 @@ class TestCinderIBMStorwizeSVCCharm(test_utils.PatchHelper):
             return config
 
         self.config.side_effect = cf
-        c = cinder_ibmstorwizesvc.CinderIBMStorwizeSVCCharm()
+        c = cinder_ibm_storwize_svc.CinderIBMStorwizeSVCCharm()
         return c
 
     def test_cinder_base(self):
         charm = self._patch_config_and_charm({})
-        self.assertEqual(charm.name, 'cinder_ibmstorwizesvc')
+        self.assertEqual(charm.name, 'cinder_ibm_storwize_svc')
         self.assertEqual(charm.version_package, 'cinder-common')
         self.assertEqual(charm.packages, [''])
 

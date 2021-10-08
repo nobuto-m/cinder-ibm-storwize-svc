@@ -17,7 +17,7 @@ relations:
 - - cinder:amqp
   - rabbitmq-server:amqp
 - - cinder:storage-backend
-  - cinder-ibmstorwizesvc:storage-backend
+  - cinder-ibm-storwize-svc:storage-backend
 applications:
   mysql:
     charm: cs:~openstack-charmers-next/percona-cluster
@@ -38,9 +38,9 @@ applications:
       openstack-origin: cloud:xenial-ussuri
     to:
     - '2'
-  cinder-ibmstorwizesvc:
+  cinder-ibm-storwize-svc:
     series: xenial
-    charm: cinder-ibmstorwizesvc
+    charm: cinder-ibm-storwize-svc
     options:
 # Add config options here
   rabbitmq-server:

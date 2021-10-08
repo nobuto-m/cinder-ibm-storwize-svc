@@ -8,7 +8,7 @@ class CinderIBMStorwizeSVCCharm(
         charms_openstack.charm.CinderStoragePluginCharm):
 
     # The name of the charm
-    name = 'cinder_ibmstorwizesvc'
+    name = 'cinder_ibm_storwize_svc'
 
     # Package to determine application version. Use "cinder-common" when
     # the driver is in-tree of Cinder upstream.

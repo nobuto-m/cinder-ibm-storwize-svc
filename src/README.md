@@ -1,17 +1,17 @@
-IBMStorwizeSVC Storage Backend for Cinder
+IBM Storwize SVC Storage Backend for Cinder
 -------------------------------
 
 Overview
 ========
 
-This charm provides a IBMStorwizeSVC storage backend for use with the Cinder
+This charm provides a IBM Storwize SVC storage backend for use with the Cinder
 charm.
 
 To use:
 
     juju deploy cinder
-    juju deploy cinder-ibmstorwizesvc
-    juju add-relation cinder-ibmstorwizesvc cinder
+    juju deploy cinder-ibm-storwize-svc
+    juju add-relation cinder-ibm-storwize-svc cinder
 
 Configuration
 =============
