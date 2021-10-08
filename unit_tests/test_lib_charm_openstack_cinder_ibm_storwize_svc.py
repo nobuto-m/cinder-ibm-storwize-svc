@@ -41,8 +41,52 @@ class TestCinderIBMStorwizeSVCCharm(test_utils.PatchHelper):
         self.assertEqual(charm.version_package, "cinder-common")
         self.assertEqual(charm.packages, [""])
 
-    def test_cinder_configuration(self):
-        charm = self._patch_config_and_charm({"a": "b"})
+    def test_cinder_configuration_iscsi(self):
+        charm = self._patch_config_and_charm(
+            {
+                "protocol": "iscsi",
+                "san-ip": "192.0.2.1",
+                "san-login": "superuser",
+                "san-password": "my-password",
+                "storwize-svc-volpool-name": "cinder_pool1",
+            }
+        )
         config = charm.cinder_configuration()  # noqa
-        # Add check here that configuration is as expected.
-        # self.assertEqual(config, {})
+        self.assertEqual(
+            config,
+            [
+                (
+                    "volume_driver",
+                    "cinder.volume.drivers.ibm.storwize_svc.storwize_svc_iscsi.StorwizeSVCISCSIDriver", # noqa
+                ),
+                ("san_ip", "192.0.2.1"),
+                ("san_login", "superuser"),
+                ("san_password", "my-password"),
+                ("storwize_svc_volpool_name", "cinder_pool1"),
+            ],
+        )
+
+    def test_cinder_configuration_fc(self):
+        charm = self._patch_config_and_charm(
+            {
+                "protocol": "fc",
+                "san-ip": "192.0.2.1",
+                "san-login": "superuser",
+                "san-password": "my-password",
+                "storwize-svc-volpool-name": "cinder_pool1",
+            }
+        )
+        config = charm.cinder_configuration()  # noqa
+        self.assertEqual(
+            config,
+            [
+                (
+                    "volume_driver",
+                    "cinder.volume.drivers.ibm.storwize_svc.storwize_svc_fc.StorwizeSVCFCDriver", # noqa
+                ),
+                ("san_ip", "192.0.2.1"),
+                ("san_login", "superuser"),
+                ("san_password", "my-password"),
+                ("storwize_svc_volpool_name", "cinder_pool1"),
+            ],
+        )

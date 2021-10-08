@@ -1,1 +1,33 @@
 options:
+  volume-backend-name:
+    type: string
+    default:
+    description: |
+      Volume backend name for the backend. The default value is the
+      application name in the Juju model.
+  protocol:
+    type: string
+    default: iscsi
+    description: |
+      SAN protocol to use. Choose between iscsi or fc.
+  san-ip:
+    type: string
+    default:
+    description: |
+      IP address of SAN controller.
+  san-login:
+    type: string
+    default:
+    description: |
+      Username for SAN controller.
+  san-password:
+    type: string
+    default:
+    description: |
+      Password for SAN controller. SSH key pair authentication is not
+      supported by the charm at this moment.
+  storwize-svc-volpool-name:
+    type: string
+    default:
+    description: |
+      Comma separated list of storage system storage pools for volumes.
