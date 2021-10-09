@@ -67,10 +67,6 @@ class CinderIBMStorwizeSVCCharm(
             ("volume_backend_name", volume_backend_name),
             ("volume_driver", volume_driver),
             ("san_ip", self.config.get("san-ip")),
-            (
-                "storwize_san_secondary_ip",
-                self.config.get("storwize-san-secondary-ip"),
-            ),
             ("san_login", self.config.get("san-login")),
             ("san_password", self.config.get("san-password")),
             (
@@ -78,4 +74,13 @@ class CinderIBMStorwizeSVCCharm(
                 self.config.get("storwize-svc-volpool-name"),
             ),
         ]
+
+        if self.config.get("storwize-san-secondary-ip"):
+            driver_options.append(
+                (
+                    "storwize_san_secondary_ip",
+                    self.config.get("storwize-san-secondary-ip"),
+                )
+            )
+
         return driver_options
