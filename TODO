@@ -1,0 +1,16 @@
+- check if there is a way not to inherite files from underlying layers
+  such as templates/openstack_https_frontend.conf or actions/pause
+- extend charm options:
+  [x] storwize_san_secondary_ip
+  [ ] storwize_svc_multipath_enabled
+  [ ] storwize_svc_vol_autoexpand
+  [ ] storwize_svc_vol_compression
+  [ ] storwize_svc_vol_easytier
+  [ ] storwize_svc_vol_grainsize
+  [ ] storwize_svc_vol_iogrp
+  [ ] storwize_svc_vol_nofmtdisk
+  [ ] storwize_svc_vol_rsize
+  [ ] storwize_svc_vol_warning
+  [ ] storwize_preferred_host_site (to be confirmed)
+  [ ] storwize_svc_stretched_cluster_partner
+  [ ] storwize_svc_mirror_pool
