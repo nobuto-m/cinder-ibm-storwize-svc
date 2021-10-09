@@ -15,6 +15,12 @@ options:
     default:
     description: |
       IP address of SAN controller.
+  storwize-san-secondary-ip:
+    type: string
+    default:
+    description: |
+      Specifies secondary management IP or hostname to be used if san_ip
+      is invalid or becomes inaccessible.
   san-login:
     type: string
     default:

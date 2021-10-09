@@ -48,6 +48,7 @@ class TestCinderIBMStorwizeSVCCharm(test_utils.PatchHelper):
             {
                 "protocol": "iscsi",
                 "san-ip": "192.0.2.1",
+                "storwize-san-secondary-ip": "192.0.2.2",
                 "san-login": "superuser",
                 "san-password": "my-password",
                 "storwize-svc-volpool-name": "cinder_pool1",
@@ -63,6 +64,7 @@ class TestCinderIBMStorwizeSVCCharm(test_utils.PatchHelper):
                     "cinder.volume.drivers.ibm.storwize_svc.storwize_svc_iscsi.StorwizeSVCISCSIDriver",  # noqa
                 ),
                 ("san_ip", "192.0.2.1"),
+                ("storwize_san_secondary_ip", "192.0.2.2"),
                 ("san_login", "superuser"),
                 ("san_password", "my-password"),
                 ("storwize_svc_volpool_name", "cinder_pool1"),
@@ -76,6 +78,7 @@ class TestCinderIBMStorwizeSVCCharm(test_utils.PatchHelper):
             {
                 "protocol": "fc",
                 "san-ip": "192.0.2.1",
+                "storwize-san-secondary-ip": "192.0.2.2",
                 "san-login": "superuser",
                 "san-password": "my-password",
                 "storwize-svc-volpool-name": "cinder_pool1",
@@ -91,6 +94,7 @@ class TestCinderIBMStorwizeSVCCharm(test_utils.PatchHelper):
                     "cinder.volume.drivers.ibm.storwize_svc.storwize_svc_fc.StorwizeSVCFCDriver",  # noqa
                 ),
                 ("san_ip", "192.0.2.1"),
+                ("storwize_san_secondary_ip", "192.0.2.2"),
                 ("san_login", "superuser"),
                 ("san_password", "my-password"),
                 ("storwize_svc_volpool_name", "cinder_pool1"),
@@ -103,6 +107,7 @@ class TestCinderIBMStorwizeSVCCharm(test_utils.PatchHelper):
                 "volume-backend-name": "my_special_backend_name",
                 "protocol": "iscsi",
                 "san-ip": "192.0.2.1",
+                "storwize-san-secondary-ip": "192.0.2.2",
                 "san-login": "superuser",
                 "san-password": "my-password",
                 "storwize-svc-volpool-name": "cinder_pool1",
@@ -118,6 +123,7 @@ class TestCinderIBMStorwizeSVCCharm(test_utils.PatchHelper):
                     "cinder.volume.drivers.ibm.storwize_svc.storwize_svc_iscsi.StorwizeSVCISCSIDriver",  # noqa
                 ),
                 ("san_ip", "192.0.2.1"),
+                ("storwize_san_secondary_ip", "192.0.2.2"),
                 ("san_login", "superuser"),
                 ("san_password", "my-password"),
                 ("storwize_svc_volpool_name", "cinder_pool1"),

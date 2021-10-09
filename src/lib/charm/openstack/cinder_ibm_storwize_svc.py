@@ -4,8 +4,8 @@ import charmhelpers.core.hookenv as ch_hookenv  # noqa
 charms_openstack.charm.use_defaults("charm.default-select-release")
 
 MULTIPATH_PACKAGES = [
-    'multipath-tools',
-    'sysfsutils',
+    "multipath-tools",
+    "sysfsutils",
 ]
 
 STORWIZE_SVC_DRIVER_ISCSI = "{}.{}".format(
@@ -67,6 +67,10 @@ class CinderIBMStorwizeSVCCharm(
             ("volume_backend_name", volume_backend_name),
             ("volume_driver", volume_driver),
             ("san_ip", self.config.get("san-ip")),
+            (
+                "storwize_san_secondary_ip",
+                self.config.get("storwize-san-secondary-ip"),
+            ),
             ("san_login", self.config.get("san-login")),
             ("san_password", self.config.get("san-password")),
             (
