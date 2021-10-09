@@ -2,15 +2,15 @@
   such as templates/openstack_https_frontend.conf or actions/pause
 - extend charm options:
   [x] storwize_san_secondary_ip
-  [ ] storwize_svc_multipath_enabled
-  [ ] storwize_svc_vol_autoexpand
-  [ ] storwize_svc_vol_compression
-  [ ] storwize_svc_vol_easytier
-  [ ] storwize_svc_vol_grainsize
-  [ ] storwize_svc_vol_iogrp
-  [ ] storwize_svc_vol_nofmtdisk
-  [ ] storwize_svc_vol_rsize
-  [ ] storwize_svc_vol_warning
-  [ ] storwize_preferred_host_site (to be confirmed)
-  [ ] storwize_svc_stretched_cluster_partner
-  [ ] storwize_svc_mirror_pool
+  [ ] storwize_svc_multipath_enabled (default: False) - FC only; iSCSI multipath is controlled by Nova
+  [ ] storwize_svc_vol_autoexpand (default: True)
+  [ ] storwize_svc_vol_compression (defalt: False)
+  [ ] storwize_svc_vol_easytier (default: True)
+  [ ] storwize_svc_vol_grainsize (default: 256)
+  [ ] storwize_svc_vol_iogrp (default: 0)
+  [ ] storwize_svc_vol_nofmtdisk (default: False)
+  [ ] storwize_svc_vol_rsize (default: 2)
+  [ ] storwize_svc_vol_warning (default: 0)
+  [ ] storwize_preferred_host_site (to be confirmed) (default: {})
+  [ ] storwize_svc_stretched_cluster_partner (default: None)
+  [ ] storwize_svc_mirror_pool (default: None)
