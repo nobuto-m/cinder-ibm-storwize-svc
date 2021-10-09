@@ -1,4 +1,5 @@
-- check if there is a way not to inherite files from underlying layers
+- check if there is a way not to inherit some interfaces/relations such
+  as certificates:tls-certificates, or files from the underlying layers
   such as templates/openstack_https_frontend.conf or actions/pause
 - extend charm options:
   [x] storwize_san_secondary_ip
