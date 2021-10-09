@@ -39,7 +39,7 @@ class TestCinderIBMStorwizeSVCCharm(test_utils.PatchHelper):
         charm = self._patch_config_and_charm({})
         self.assertEqual(charm.name, "cinder_ibm_storwize_svc")
         self.assertEqual(charm.version_package, "cinder-common")
-        self.assertEqual(charm.packages, [""])
+        self.assertEqual(charm.packages, ["", "multipath-tools", "sysfsutils"])
 
     def test_cinder_configuration_iscsi(self):
         self.patch_object(charmhelpers.core.hookenv, "service_name")

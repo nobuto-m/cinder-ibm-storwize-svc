@@ -3,6 +3,11 @@ import charmhelpers.core.hookenv as ch_hookenv  # noqa
 
 charms_openstack.charm.use_defaults("charm.default-select-release")
 
+MULTIPATH_PACKAGES = [
+    'multipath-tools',
+    'sysfsutils',
+]
+
 STORWIZE_SVC_DRIVER_ISCSI = "{}.{}".format(
     "cinder.volume.drivers.ibm.storwize_svc",
     "storwize_svc_iscsi.StorwizeSVCISCSIDriver",
@@ -31,6 +36,9 @@ class CinderIBMStorwizeSVCCharm(
 
     # List of packages to install
     packages = [""]
+
+    # make sure multipath related packages are installed
+    packages.extend(MULTIPATH_PACKAGES)
 
     stateless = True
 
