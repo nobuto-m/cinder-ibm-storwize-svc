@@ -1,10 +1,12 @@
 name: cinder-ibm-storwize-svc
-summary: IBM Storwize SVC integration for OpenStack Block Storage
+display-name: Cinder IBM Spectrum Virtualize Family
+summary: IBM Spectrum Virtualize Family integration for OpenStack Block Storage
 maintainer: OpenStack Charmers <openstack-charmers@lists.ubuntu.com>
 description: |
  Cinder is the block storage service for the Openstack project.
  .
- This charm provides a IBM Storwize SVC backend for Cinder
+ This charm provides a IBM Spectrum Virtualize Family (formerly known as
+ IBM Storwize) backend for Cinder.
 tags:
   - openstack
   - storage

@@ -1,11 +1,11 @@
-IBM Storwize SVC Storage Backend for Cinder
--------------------------------
+IBM Spectrum Virtualize Family Storage Backend for Cinder
+---------------------------------------------------------
 
 Overview
 ========
 
-This charm provides a IBM Storwize SVC storage backend for use with the Cinder
-charm.
+This charm provides a IBM Spectrum Virtualize Family (formerly known as
+IBM Storwize) storage backend for use with the Cinder charm.
 
 To use:
 
