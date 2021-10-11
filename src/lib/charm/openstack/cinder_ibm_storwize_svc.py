@@ -75,6 +75,15 @@ class CinderIBMStorwizeSVCCharm(
             ),
         ]
 
+        if self.config.get("use-multipath"):
+            driver_options.extend(
+                [
+                    ("use_multipath_for_image_xfer", True),
+                    ("enforce_multipath_for_image_xfer", True),
+                    ("storwize_svc_multipath_enabled", True),
+                ]
+            )
+
         if self.config.get("storwize-san-secondary-ip"):
             driver_options.append(
                 (

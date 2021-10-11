@@ -3,7 +3,7 @@
   such as templates/openstack_https_frontend.conf or actions/pause
 - extend charm options:
   [x] storwize_san_secondary_ip
-  [ ] storwize_svc_multipath_enabled (default: False) - FC only; iSCSI multipath is controlled by Nova
+  [x] storwize_svc_multipath_enabled
   [ ] storwize_svc_vol_autoexpand (default: True)
   [ ] storwize_svc_vol_compression (defalt: False)
   [ ] storwize_svc_vol_easytier (default: True)
