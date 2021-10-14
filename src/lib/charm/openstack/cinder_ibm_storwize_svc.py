@@ -5,7 +5,7 @@ charms_openstack.charm.use_defaults("charm.default-select-release")
 
 MULTIPATH_PACKAGES = [
     "multipath-tools",
-    "sysfsutils",
+    "sysfsutils",  # LP: #1947063
 ]
 
 STORWIZE_SVC_DRIVER_ISCSI = "{}.{}".format(
