@@ -44,6 +44,7 @@ class TestCinderIBMStorwizeSVCCharm(test_utils.PatchHelper):
     def test_cinder_configuration_missing_mandatory_config(self):
         charm = self._patch_config_and_charm(
             {
+                "volume-backend-name": "my_backend_name",
                 "protocol": "iscsi",
                 "san-ip": "192.0.2.1",
                 "san-login": "superuser",
@@ -55,10 +56,9 @@ class TestCinderIBMStorwizeSVCCharm(test_utils.PatchHelper):
         self.assertEqual(config, None)
 
     def test_cinder_configuration_iscsi(self):
-        self.patch_object(charmhelpers.core.hookenv, "service_name")
-        self.service_name.return_value = "cinder-ibm-storwize-svc-myapp"
         charm = self._patch_config_and_charm(
             {
+                "volume-backend-name": "my_backend_name",
                 "protocol": "iscsi",
                 "san-ip": "192.0.2.1",
                 "san-login": "superuser",
@@ -70,7 +70,7 @@ class TestCinderIBMStorwizeSVCCharm(test_utils.PatchHelper):
         self.assertEqual(
             config,
             [
-                ("volume_backend_name", "cinder-ibm-storwize-svc-myapp"),
+                ("volume_backend_name", "my_backend_name"),
                 (
                     "volume_driver",
                     "cinder.volume.drivers.ibm.storwize_svc.storwize_svc_iscsi.StorwizeSVCISCSIDriver",  # noqa
@@ -83,10 +83,9 @@ class TestCinderIBMStorwizeSVCCharm(test_utils.PatchHelper):
         )
 
     def test_cinder_configuration_fc(self):
-        self.patch_object(charmhelpers.core.hookenv, "service_name")
-        self.service_name.return_value = "cinder-ibm-storwize-svc-myapp"
         charm = self._patch_config_and_charm(
             {
+                "volume-backend-name": "my_backend_name",
                 "protocol": "fc",
                 "san-ip": "192.0.2.1",
                 "san-login": "superuser",
@@ -98,7 +97,7 @@ class TestCinderIBMStorwizeSVCCharm(test_utils.PatchHelper):
         self.assertEqual(
             config,
             [
-                ("volume_backend_name", "cinder-ibm-storwize-svc-myapp"),
+                ("volume_backend_name", "my_backend_name"),
                 (
                     "volume_driver",
                     "cinder.volume.drivers.ibm.storwize_svc.storwize_svc_fc.StorwizeSVCFCDriver",  # noqa
@@ -110,10 +109,12 @@ class TestCinderIBMStorwizeSVCCharm(test_utils.PatchHelper):
             ],
         )
 
-    def test_cinder_configuration_explicit_backend_name(self):
+    def test_cinder_configuration_no_explicit_backend_name(self):
+        self.patch_object(charmhelpers.core.hookenv, "service_name")
+        self.service_name.return_value = "cinder-myapp-name"
         charm = self._patch_config_and_charm(
             {
-                "volume-backend-name": "my_special_backend_name",
+                "volume-backend-name": None,
                 "protocol": "iscsi",
                 "san-ip": "192.0.2.1",
                 "san-login": "superuser",
@@ -125,7 +126,7 @@ class TestCinderIBMStorwizeSVCCharm(test_utils.PatchHelper):
         self.assertEqual(
             config,
             [
-                ("volume_backend_name", "my_special_backend_name"),
+                ("volume_backend_name", "cinder-myapp-name"),
                 (
                     "volume_driver",
                     "cinder.volume.drivers.ibm.storwize_svc.storwize_svc_iscsi.StorwizeSVCISCSIDriver",  # noqa
@@ -138,10 +139,9 @@ class TestCinderIBMStorwizeSVCCharm(test_utils.PatchHelper):
         )
 
     def test_cinder_configuration_enable_multipath(self):
-        self.patch_object(charmhelpers.core.hookenv, "service_name")
-        self.service_name.return_value = "cinder-ibm-storwize-svc-myapp"
         charm = self._patch_config_and_charm(
             {
+                "volume-backend-name": "my_backend_name",
                 "use-multipath": True,
                 "protocol": "iscsi",
                 "san-ip": "192.0.2.1",
@@ -155,7 +155,7 @@ class TestCinderIBMStorwizeSVCCharm(test_utils.PatchHelper):
         self.assertEqual(
             config,
             [
-                ("volume_backend_name", "cinder-ibm-storwize-svc-myapp"),
+                ("volume_backend_name", "my_backend_name"),
                 (
                     "volume_driver",
                     "cinder.volume.drivers.ibm.storwize_svc.storwize_svc_iscsi.StorwizeSVCISCSIDriver",  # noqa
@@ -172,10 +172,9 @@ class TestCinderIBMStorwizeSVCCharm(test_utils.PatchHelper):
         )
 
     def test_cinder_configuration_san_secondary_ip(self):
-        self.patch_object(charmhelpers.core.hookenv, "service_name")
-        self.service_name.return_value = "cinder-ibm-storwize-svc-myapp"
         charm = self._patch_config_and_charm(
             {
+                "volume-backend-name": "my_backend_name",
                 "protocol": "iscsi",
                 "san-ip": "192.0.2.1",
                 "storwize-san-secondary-ip": "192.0.2.2",
@@ -188,7 +187,7 @@ class TestCinderIBMStorwizeSVCCharm(test_utils.PatchHelper):
         self.assertEqual(
             config,
             [
-                ("volume_backend_name", "cinder-ibm-storwize-svc-myapp"),
+                ("volume_backend_name", "my_backend_name"),
                 (
                     "volume_driver",
                     "cinder.volume.drivers.ibm.storwize_svc.storwize_svc_iscsi.StorwizeSVCISCSIDriver",  # noqa
