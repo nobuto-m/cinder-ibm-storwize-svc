@@ -53,7 +53,7 @@ class TestCinderIBMStorwizeSVCCharm(test_utils.PatchHelper):
                 "storwize-svc-volpool-name": "cinder_pool1",
             }
         )
-        config = charm.cinder_configuration()  # noqa
+        config = charm.cinder_configuration()
         self.assertEqual(
             config,
             [
@@ -81,7 +81,7 @@ class TestCinderIBMStorwizeSVCCharm(test_utils.PatchHelper):
                 "storwize-svc-volpool-name": "cinder_pool1",
             }
         )
-        config = charm.cinder_configuration()  # noqa
+        config = charm.cinder_configuration()
         self.assertEqual(
             config,
             [
@@ -108,11 +108,11 @@ class TestCinderIBMStorwizeSVCCharm(test_utils.PatchHelper):
                 "storwize-svc-volpool-name": "cinder_pool1",
             }
         )
-        config = charm.cinder_configuration()  # noqa
+        config = charm.cinder_configuration()
         self.assertEqual(
             config,
             [
-                ('volume_backend_name', "my_special_backend_name"),
+                ("volume_backend_name", "my_special_backend_name"),
                 (
                     "volume_driver",
                     "cinder.volume.drivers.ibm.storwize_svc.storwize_svc_iscsi.StorwizeSVCISCSIDriver",  # noqa
@@ -138,7 +138,7 @@ class TestCinderIBMStorwizeSVCCharm(test_utils.PatchHelper):
                 "storwize-svc-volpool-name": "cinder_pool1",
             }
         )
-        config = charm.cinder_configuration()  # noqa
+        config = charm.cinder_configuration()
         self.assertEqual(
             config,
             [
@@ -171,7 +171,7 @@ class TestCinderIBMStorwizeSVCCharm(test_utils.PatchHelper):
                 "storwize-svc-volpool-name": "cinder_pool1",
             }
         )
-        config = charm.cinder_configuration()  # noqa
+        config = charm.cinder_configuration()
         self.assertEqual(
             config,
             [
