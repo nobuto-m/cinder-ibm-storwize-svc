@@ -54,7 +54,7 @@ class CinderIBMStorwizeSVCCharm(
     def cinder_configuration(self):
         mandatory_config_values = map(self.config.get, self.mandatory_config)
         if not all(list(mandatory_config_values)):
-            return
+            return []
 
         protocol = self.config.get("protocol")
         if protocol == "iscsi":
