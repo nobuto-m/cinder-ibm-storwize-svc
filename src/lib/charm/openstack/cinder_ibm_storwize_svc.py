@@ -52,6 +52,12 @@ class CinderIBMStorwizeSVCCharm(
     ]
 
     def cinder_configuration(self):
+        mandatory_config_values = list(
+            map(self.config.get, self.mandatory_config)
+        )
+        if not all(mandatory_config_values):
+            return
+
         protocol = self.config.get("protocol")
         if protocol == "iscsi":
             volume_driver = STORWIZE_SVC_DRIVER_ISCSI
