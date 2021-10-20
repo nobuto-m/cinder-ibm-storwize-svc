@@ -14,7 +14,7 @@ options:
       "use-multipath" option in the nova-compute charm.
   protocol:
     type: string
-    default: iscsi
+    default:
     description: |
       SAN protocol to use. Choose between iscsi or fc.
   san-ip:
