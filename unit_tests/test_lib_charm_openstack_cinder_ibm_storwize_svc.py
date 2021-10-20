@@ -53,7 +53,7 @@ class TestCinderIBMStorwizeSVCCharm(test_utils.PatchHelper):
             }
         )
         config = charm.cinder_configuration()
-        self.assertEqual(config, None)
+        self.assertEqual(config, [])
 
     def test_cinder_configuration_iscsi(self):
         charm = self._patch_config_and_charm(
