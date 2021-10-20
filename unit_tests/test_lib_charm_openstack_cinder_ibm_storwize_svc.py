@@ -151,9 +151,9 @@ class TestCinderIBMStorwizeSVCCharm(test_utils.PatchHelper):
                 ("san_login", "superuser"),
                 ("san_password", "my-password"),
                 ("storwize_svc_volpool_name", "cinder_pool1"),
-                ('use_multipath_for_image_xfer', True),
-                ('enforce_multipath_for_image_xfer', True),
-                ('storwize_svc_multipath_enabled', True),
+                ("use_multipath_for_image_xfer", True),
+                ("enforce_multipath_for_image_xfer", True),
+                ("storwize_svc_multipath_enabled", True),
                 ("storwize_san_secondary_ip", "192.0.2.2"),
             ],
         )
