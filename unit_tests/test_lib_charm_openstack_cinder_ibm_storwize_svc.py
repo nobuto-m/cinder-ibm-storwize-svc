@@ -47,7 +47,7 @@ class TestCinderIBMStorwizeSVCCharm(test_utils.PatchHelper):
                 "protocol": "iscsi",
                 "san-ip": "192.0.2.1",
                 "san-login": "superuser",
-                # missing password
+                "san-password": None,
                 "storwize-svc-volpool-name": "cinder_pool1",
             }
         )
