@@ -4,7 +4,7 @@ import charmhelpers.core.hookenv as ch_hookenv  # noqa
 charms_openstack.charm.use_defaults("charm.default-select-release")
 
 MULTIPATH_PACKAGES = [
-    "multipath-tools",
+    "multipath-tools",  # installed by default for disco+
     "sysfsutils",  # LP: #1947063
 ]
 
