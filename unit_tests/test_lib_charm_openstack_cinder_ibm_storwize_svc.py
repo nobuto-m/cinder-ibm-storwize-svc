@@ -41,6 +41,19 @@ class TestCinderIBMStorwizeSVCCharm(test_utils.PatchHelper):
         self.assertEqual(charm.version_package, "cinder-common")
         self.assertEqual(charm.packages, ["", "multipath-tools", "sysfsutils"])
 
+    def test_cinder_configuration_missing_mandatory_config(self):
+        charm = self._patch_config_and_charm(
+            {
+                "protocol": "iscsi",
+                "san-ip": "192.0.2.1",
+                "san-login": "superuser",
+                # missing password
+                "storwize-svc-volpool-name": "cinder_pool1",
+            }
+        )
+        config = charm.cinder_configuration()
+        self.assertEqual(config, None)
+
     def test_cinder_configuration_iscsi(self):
         self.patch_object(charmhelpers.core.hookenv, "service_name")
         self.service_name.return_value = "cinder-ibm-storwize-svc-myapp"
