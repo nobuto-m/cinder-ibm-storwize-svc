@@ -40,7 +40,9 @@ class CinderIBMStorwizeSVCCharm(
     # make sure multipath related packages are installed
     packages.extend(MULTIPATH_PACKAGES)
 
-    stateless = True
+    # https://docs.openstack.org/cinder/latest/reference/support-matrix.html#operation_active_active_ha
+    # https://docs.openstack.org/cinder/latest/contributor/high_availability.html#enabling-active-active-on-drivers
+    stateless = False
 
     # Specify any config that the user *must* set.
     mandatory_config = [
