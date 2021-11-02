@@ -12,6 +12,6 @@
   [ ] storwize_svc_vol_nofmtdisk (default: False)
   [ ] storwize_svc_vol_rsize (default: 2)
   [ ] storwize_svc_vol_warning (default: 0)
-  [ ] storwize_preferred_host_site (to be confirmed) (default: {})
+  [x] storwize_preferred_host_site (to be confirmed) (default: {})
   [ ] storwize_svc_stretched_cluster_partner (default: None)
-  [ ] storwize_svc_mirror_pool (default: None)
+  [x] storwize_svc_mirror_pool (default: None)

@@ -199,3 +199,37 @@ class TestCinderIBMStorwizeSVCCharm(test_utils.PatchHelper):
                 ("storwize_san_secondary_ip", "192.0.2.2"),
             ],
         )
+
+    def test_cinder_configuration_mirror_pool(self):
+        charm = self._patch_config_and_charm(
+            {
+                "volume-backend-name": "my_backend_name",
+                "protocol": "iscsi",
+                "san-ip": "192.0.2.1",
+                "san-login": "superuser",
+                "san-password": "my-password",
+                "storwize-svc-volpool-name": "cinder_pool1",
+                "storwize-preferred-host-site": "site1:iqn1,site2:iqn2&wiqn3",
+                "storwize-svc-mirror-pool": "pool2",
+            }
+        )
+        config = charm.cinder_configuration()
+        self.assertEqual(
+            config,
+            [
+                ("volume_backend_name", "my_backend_name"),
+                (
+                    "volume_driver",
+                    "cinder.volume.drivers.ibm.storwize_svc.storwize_svc_iscsi.StorwizeSVCISCSIDriver",  # noqa
+                ),
+                ("san_ip", "192.0.2.1"),
+                ("san_login", "superuser"),
+                ("san_password", "my-password"),
+                ("storwize_svc_volpool_name", "cinder_pool1"),
+                (
+                    "storwize_preferred_host_site",
+                    "site1:iqn1,site2:iqn2&wiqn3",
+                ),
+                ("storwize_svc_mirror_pool", "pool2"),
+            ],
+        )

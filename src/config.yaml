@@ -44,3 +44,15 @@ options:
     default:
     description: |
       Comma separated list of storage system storage pools for volumes.
+  storwize-preferred-host-site:
+    type: string
+    default:
+    description: |
+      Specifies the site information for host. One WWPN or multi-WWPNs
+      used in the host can be specified. For example,
+      "site1:wwpn1,site2:wwpn2&wwpn3" or "site1:iqn1,site2:iqn2"
+  storwize-svc-mirror-pool:
+    type: string
+    default:
+    description: |
+      The name of the pool in which mirrored copy is stored.

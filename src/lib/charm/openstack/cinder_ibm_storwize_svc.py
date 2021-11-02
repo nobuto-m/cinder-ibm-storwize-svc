@@ -96,4 +96,20 @@ class CinderIBMStorwizeSVCCharm(
                 )
             )
 
+        if self.config.get("storwize-preferred-host-site"):
+            driver_options.append(
+                (
+                    "storwize_preferred_host_site",
+                    self.config.get("storwize-preferred-host-site"),
+                )
+            )
+
+        if self.config.get("storwize-svc-mirror-pool"):
+            driver_options.append(
+                (
+                    "storwize_svc_mirror_pool",
+                    self.config.get("storwize-svc-mirror-pool"),
+                )
+            )
+
         return driver_options
