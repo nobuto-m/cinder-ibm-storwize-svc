@@ -1,9 +1,0 @@
-charm_name: cinder-ibm-storwize-svc
-tests:
-  - tests.tests_cinder_ibm_storwize_svc.CinderIBMStorwizeSVCTest
-configure:
-  - zaza.openstack.charm_tests.keystone.setup.add_demo_user
-gate_bundles:
-  - xenial-ussuri
-smoke_bundles:
-  - xenial-ussuri
