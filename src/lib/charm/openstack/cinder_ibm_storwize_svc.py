@@ -112,4 +112,28 @@ class CinderIBMStorwizeSVCCharm(
                 )
             )
 
+        if self.config.get("storwize-svc-stretched-cluster-partner"):
+            driver_options.append(
+                (
+                    "storwize_svc_stretched_cluster_partner",
+                    self.config.get("storwize-svc-stretched-cluster-partner"),
+                )
+            )
+
+        if self.config.get("storwize-svc-vol-compression") is not None:
+            driver_options.append(
+                (
+                    "storwize_svc_vol_compression",
+                    self.config.get("storwize-svc-vol-compression"),
+                )
+            )
+
+        if self.config.get("storwize-svc-vol-iogrp") is not None:
+            driver_options.append(
+                (
+                    "storwize_svc_vol_iogrp",
+                    self.config.get("storwize-svc-vol-iogrp"),
+                )
+            )
+
         return driver_options

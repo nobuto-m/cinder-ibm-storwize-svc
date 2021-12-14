@@ -56,3 +56,20 @@ options:
     default:
     description: |
       The name of the pool in which mirrored copy is stored.
+  storwize-svc-stretched-cluster-partner:
+    type: string
+    default:
+    description: |
+      If operating in stretched cluster mode, specify the name of the
+      pool in which mirrored copies are stored. e.g. "pool2"
+  storwize-svc-vol-compression:
+    type: boolean
+    default:
+    description: |
+      Storage system compression option for volumes.
+      storwize-svc-vol-compression:
+  storwize-svc-vol-iogrp:
+    type: int
+    default:
+    description: |
+      The I/O group in which to allocate volumes.
