@@ -67,7 +67,6 @@ options:
     default:
     description: |
       Storage system compression option for volumes.
-      storwize-svc-vol-compression:
   storwize-svc-vol-iogrp:
     type: int
     default:
