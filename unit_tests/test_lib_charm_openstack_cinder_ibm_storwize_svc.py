@@ -272,6 +272,7 @@ class TestCinderIBMStorwizeSVCCharm(test_utils.PatchHelper):
                 "storwize-svc-volpool-name": "cinder_pool1",
                 "storwize-svc-vol-compression": True,
                 "storwize-svc-vol-iogrp": 2,
+                "storwize_svc_flashcopy_rate": 100,
             }
         )
         config = charm.cinder_configuration()
@@ -289,5 +290,6 @@ class TestCinderIBMStorwizeSVCCharm(test_utils.PatchHelper):
                 ("storwize_svc_volpool_name", "cinder_pool1"),
                 ("storwize_svc_vol_compression", True),
                 ("storwize_svc_vol_iogrp", 2),
+                ("storwize_svc_flashcopy_rate", 100),
             ],
         )
