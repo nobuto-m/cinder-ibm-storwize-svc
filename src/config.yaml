@@ -79,3 +79,8 @@ options:
       Specifies the Spectrum Virtualize Family FlashCopy copy rate to be
       used when creating a full volume copy. The default is rate is 50,
       and the valid rates are 1-100.
+  storwize-svc-flashcopy-timeout:
+    type: int
+    default:
+    description: |
+      Maximum number of seconds to wait for FlashCopy to be prepared.

@@ -144,4 +144,12 @@ class CinderIBMStorwizeSVCCharm(
                 )
             )
 
+        if self.config.get("storwize-svc-flashcopy-timeout"):
+            driver_options.append(
+                (
+                    "storwize_svc_flashcopy_timeout",
+                    self.config.get("storwize-svc-flashcopy-timeout"),
+                )
+            )
+
         return driver_options
