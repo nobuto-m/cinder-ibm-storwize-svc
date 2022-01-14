@@ -169,16 +169,19 @@ class TestCinderIBMStorwizeSVCCharm(test_utils.PatchHelper):
             ],
         )
 
-    def test_cinder_configuration_san_secondary_ip(self):
+    def test_cinder_configuration_advanced(self):
         charm = self._patch_config_and_charm(
             {
                 "volume-backend-name": "my_backend_name",
                 "protocol": "iscsi",
                 "san-ip": "192.0.2.1",
-                "storwize-san-secondary-ip": "192.0.2.2",
                 "san-login": "superuser",
                 "san-password": "my-password",
                 "storwize-svc-volpool-name": "cinder_pool1",
+                "storwize-san-secondary-ip": "192.0.2.2",
+                "storwize-svc-vol-compression": True,
+                "storwize-svc-vol-iogrp": 2,
+                "storwize-svc-flashcopy-rate": 100,
             }
         )
         config = charm.cinder_configuration()
@@ -195,6 +198,9 @@ class TestCinderIBMStorwizeSVCCharm(test_utils.PatchHelper):
                 ("san_password", "my-password"),
                 ("storwize_svc_volpool_name", "cinder_pool1"),
                 ("storwize_san_secondary_ip", "192.0.2.2"),
+                ("storwize_svc_vol_compression", True),
+                ("storwize_svc_vol_iogrp", 2),
+                ("storwize_svc_flashcopy_rate", 100),
             ],
         )
 
@@ -258,38 +264,5 @@ class TestCinderIBMStorwizeSVCCharm(test_utils.PatchHelper):
                 ("san_password", "my-password"),
                 ("storwize_svc_volpool_name", "cinder_pool1"),
                 ("storwize_svc_stretched_cluster_partner", "my_pool2"),
-            ],
-        )
-
-    def test_cinder_configuration_stretched_advanced(self):
-        charm = self._patch_config_and_charm(
-            {
-                "volume-backend-name": "my_backend_name",
-                "protocol": "iscsi",
-                "san-ip": "192.0.2.1",
-                "san-login": "superuser",
-                "san-password": "my-password",
-                "storwize-svc-volpool-name": "cinder_pool1",
-                "storwize-svc-vol-compression": True,
-                "storwize-svc-vol-iogrp": 2,
-                "storwize_svc_flashcopy_rate": 100,
-            }
-        )
-        config = charm.cinder_configuration()
-        self.assertEqual(
-            config,
-            [
-                ("volume_backend_name", "my_backend_name"),
-                (
-                    "volume_driver",
-                    "cinder.volume.drivers.ibm.storwize_svc.storwize_svc_iscsi.StorwizeSVCISCSIDriver",  # noqa
-                ),
-                ("san_ip", "192.0.2.1"),
-                ("san_login", "superuser"),
-                ("san_password", "my-password"),
-                ("storwize_svc_volpool_name", "cinder_pool1"),
-                ("storwize_svc_vol_compression", True),
-                ("storwize_svc_vol_iogrp", 2),
-                ("storwize_svc_flashcopy_rate", 100),
             ],
         )

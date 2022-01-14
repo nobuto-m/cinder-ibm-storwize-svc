@@ -72,9 +72,10 @@ options:
     default:
     description: |
       The I/O group in which to allocate volumes.
-  storwize_svc_flashcopy_rate:
+  storwize-svc-flashcopy-rate:
     type: int
     default:
     description: |
-      Specifies the Storwize FlashCopy copy rate to be used when creating a full volume copy.
-      The default is rate is 50, and the valid rates are 1-150.
+      Specifies the Spectrum Virtualize Family FlashCopy copy rate to be
+      used when creating a full volume copy. The default is rate is 50,
+      and the valid rates are 1-100.

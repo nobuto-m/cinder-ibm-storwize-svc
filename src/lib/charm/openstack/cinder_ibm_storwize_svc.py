@@ -136,11 +136,11 @@ class CinderIBMStorwizeSVCCharm(
                 )
             )
 
-        if self.config.get("storwize_svc_flashcopy_rate") is not None:
+        if self.config.get("storwize-svc-flashcopy-rate"):
             driver_options.append(
                 (
                     "storwize_svc_flashcopy_rate",
-                    self.config.get("storwize_svc_flashcopy_rate"),
+                    self.config.get("storwize-svc-flashcopy-rate"),
                 )
             )
 
